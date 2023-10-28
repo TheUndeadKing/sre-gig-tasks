@@ -21,8 +21,8 @@ var convertCmd = &cobra.Command{
 	EXAMPLE:
 	========
 	Enter from timezone:Europe/Amsterdam
+	Enter from date:17:45:00
     Enter from time:2021-03-14
-    Enter from date:17:45:00
     Enter to timezone:America/Los_Angeles
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
@@ -50,13 +50,13 @@ func ConvertTime() {
 
 	var a, b, c, d string
 
-	fmt.Print("Enter from timezone:")
+	fmt.Print("Enter from timezone[EG: Europe/Amsterdam]:")
 	fmt.Scan(&a)
-	fmt.Print("Enter from time:")
+	fmt.Print("Enter from date[FORMAT: YYYY-MM-DD][EG: 2021-03-14]:")
 	fmt.Scan(&b)
-	fmt.Print("Enter from date:")
+	fmt.Print("Enter from time[FORMAT: HH:MM:SS][EG: 17:45:00]:")
 	fmt.Scan(&c)
-	fmt.Print("Enter to timezone:")
+	fmt.Print("Enter to timezone[EG: America/Los_Angeles]:")
 	fmt.Scan(&d)
 
 	jsonData := []byte(fmt.Sprintf(`{
