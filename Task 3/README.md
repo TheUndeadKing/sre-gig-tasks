@@ -15,4 +15,4 @@ It's a simple web hosting golang program, which serves html & css content on por
 
 (3) Browse the local address via 8080 port & you'll get result as below png.
 
-![](https://github.com/TheUndeadKing/sre-gig-tasks/blob/test/Task%203/image/result.png)
+
