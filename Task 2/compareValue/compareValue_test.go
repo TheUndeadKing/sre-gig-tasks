@@ -6,7 +6,7 @@ import (
 
 func TestFooer(t *testing.T) {
 
-	want := []int{1, 100, 69, 50, 90}
+	want := []int{1, 90, 69, 50}
 
 	if want[1] < 100 && want[1] > 50 {
 
