@@ -44,19 +44,19 @@ func CurrentTime() {
 
 	resp, err := http.Get(CAPI)
 	if err != nil {
-		panic(err)
+		panic("err")
 	}
 
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
-		panic("Api not avaiable")
+		panic("Api not avaiable (OR) you'd entered wrong timzone. Kindly use list option to get correct timezone name")
 	}
 
 	body, err := io.ReadAll(resp.Body)
 
 	if err != nil {
-		panic(err)
+		panic("error")
 	}
 
 	var timex Time
