@@ -1,9 +1,8 @@
-/*
-Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-*/
 package main
 
-import "github.com/TheUndeadKing/time/cmd"
+import (
+	"ctime/cmd"
+)
 
 func main() {
 	cmd.Execute()
