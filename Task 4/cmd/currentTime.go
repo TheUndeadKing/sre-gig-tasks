@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -44,26 +45,34 @@ func CurrentTime() {
 
 	resp, err := http.Get(CAPI)
 	if err != nil {
-		panic("err")
+		error := fmt.Errorf("Kindly check the entered value")
+		fmt.Println(error.Error())
+		os.Exit(1)
 	}
 
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
-		panic("Api not avaiable (OR) you'd entered wrong timzone. Kindly use list option to get correct timezone name")
+		error := fmt.Errorf("API Doesn't exist. kindly verify the timezone using list option")
+		fmt.Println(error.Error())
+		os.Exit(1)
 	}
 
 	body, err := io.ReadAll(resp.Body)
 
 	if err != nil {
-		panic("error")
+		error := fmt.Errorf("Something gone wrong, Waiting for sometime & then re-try.")
+		fmt.Println(error.Error())
+		os.Exit(1)
 	}
 
 	var timex Time
 	err = json.Unmarshal(body, &timex)
 
 	if err != nil {
-		panic(err)
+		error := fmt.Errorf("Something gone wrong, Waiting for sometime & then re-try.")
+		fmt.Println(error.Error())
+		os.Exit(1)
 	}
 
 	fmt.Printf("The current time in %v is %v\n", timex.Timezone, timex.Time)
