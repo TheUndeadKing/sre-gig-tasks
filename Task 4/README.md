@@ -2,7 +2,7 @@ Following Cobra-cli is a time conversion application. It also can list the curre
 
 Use Case:
 
-(1) Download the ctime binary
+(1) Download the ctime binary (Or) Clone the repo.
 
 (2) List the all timezone by using `ctime list`.
 
