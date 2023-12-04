@@ -1,41 +1,36 @@
-/*
-Copyright © 2023 NAME HERE TheUndeadKing
-*/
 package cmd
 
 import (
-	"os"
+	"fmt"
 
 	"github.com/spf13/cobra"
 )
 
-// rootCmd represents the base command when called without any subcommands
-var rootCmd = &cobra.Command{
-	Use:   "time",
-	Short: "A brief description of your application",
-	Long:  `time cli utility are used to convert time based on timezone, list all timezone's current time`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
-}
-
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
-func Execute() {
-	err := rootCmd.Execute()
-	if err != nil {
-		os.Exit(1)
+var (
+	rootCmd = &cobra.Command{
+		Use:   "ctime",
+		Short: "time based Applications",
+		Long: `ctime is a CLI library. It can be used to convert time & date based on timezone.
+Get current time for all timezone.`,
+		Run: func(cmd *cobra.Command, args []string) {
+			Info := `ctime v1.0!
+ctime is a CLI library. It can be used to convert time & date based on timezone.
+Get current time for all timezone.
+		
+Usage:
+ctime [command]
+		
+Commands:
+convert     Convert date & time from timezones to another timezones
+current     List current time based on timezone
+help        Help about any command
+list        List all timezone`
+			fmt.Println(Info)
+		},
 	}
-}
+)
 
-func init() {
-	// Here you will define your flags and configuration settings.
-	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.
-
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.time.yaml)")
-
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+// Execute executes the root command.
+func Execute() error {
+	return rootCmd.Execute()
 }

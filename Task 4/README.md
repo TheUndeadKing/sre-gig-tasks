@@ -1,22 +1,14 @@
-Following go program is build using crobra-cli. It can list the current time based on timezone & convert date & time from one timezone to another timezone
+Following Cobra-cli is a time conversion application. It also can list the current time based on timezone.
 
-(1) Clone the repo:
+Use Case:
 
-~~~
-~]# https://github.com/TheUndeadKing/sre-gig-tasks.git
-~~~
+(1) Download the ctime binary (Or) Clone the repo.
 
-(2) Switch into `Task 4` directory.
-
-~~~
-~]# cd Task 3
-~~~
-
-(3) List the all timezone by using `go run main.go list`.
+(2) List the all timezone by using `ctime list`.
 
 EG:
 ~~~
-]# go run main.go list
+]# ./ctime list
 Africa/Abidjan
 Africa/Algiers
 Africa/Bissau
@@ -31,25 +23,20 @@ Pacific/Tarawa
 Pacific/Tongatapu
 ~~~
 
-(4) To get current time based on timezone by using `go run main.go currentTime`.
+(3) To get current time based on timezone by using `ctime current TimeZone`.
 
 EG:
 ~~~
-]# go run main.go currentTime
-Enter Timezone: Australia/Brisbane
-The current time in Australia/Brisbane is 17:00
+]# ./ctime current Australia/Brisbane
+The current time in Australia/Brisbane is 03:22
 ~~~
 
-(5) Convert time & date from one zone to another zone by using `go run main.go convert`.
+(5) Convert time & date from one zone to another zone by using `ctime convert -f FromTimezone -t ToTimezone -m HH:MM:SS -d YYYY-MM-DD`.
 
 EG:
 ~~~
-~]# go run main.go convert
-Enter from timezone[EG: Europe/Amsterdam]:Australia/Brisbane
-Enter from date[FORMAT: YYYY-MM-DD][EG: 2021-03-14]:2023-10-30
-Enter from time[FORMAT: HH:MM:SS][EG: 17:45:00]:12:33:00
-Enter to timezone[EG: America/Los_Angeles]:Asia/Kolkata
-Time - 08:03 
-Date - 10/30/2023 
-Timezone - Asia/Kolkata 
+~]# ./ctime convert -f Europe/Amsterdam -t America/Los_Angeles -e 17:45:00 -d 2021-03-14
+Time - 09:45 
+Date - 03/14/2021 
+Timezone - America/Los_Angeles 
 ~~~
